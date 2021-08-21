@@ -1,0 +1,30 @@
+<div class="body">
+  <div class="chat" *ngIf="connection; else connectionError">
+    <div class="messages">
+      <app-message
+        *ngFor="let message of messages"
+        [message]="message"
+      ></app-message>
+      <p *ngIf="messages.length === 0" class="no-messages">
+        No messages were written yet...
+      </p>
+    </div>
+
+    <div class="controls">
+      <input
+        [(ngModel)]="newMessage"
+        (keypress)="handleKeyPress($event)"
+        placeholder="Type message..."
+        type="text"
+      />
+      <button (click)="onSend()">Send</button>
+    </div>
+  </div>
+
+  <ng-template #connectionError>
+    <div class="error">
+      <h2>Connection to the server lost...</h2>
+      <button onclick="window.location = window.location">Reload</button>
+    </div>
+  </ng-template>
+</div>

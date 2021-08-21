@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="body">
+    <form (ngSubmit)="onSubmit()">
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        autocomplete="off"
+        [(ngModel)]="email"
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        [(ngModel)]="password"
+      />
+      <button type="submit">Enter the chat</button>
+    </form>
+
+    <p class="sign-up-link">
+      Don't have a profile? <a routerLink="/sign-up">Sign up</a>
+    </p>
+  </div>
+</div>
